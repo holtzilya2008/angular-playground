@@ -1,0 +1,12 @@
+@import '../../../../styles/variables.scss';
+
+.pg-purchased-item-details {
+    .pg-form-side {
+        margin-left: $length-md;
+        margin-top: $length-lg;
+        width: 350px;
+    }
+    mat-form-field {
+        margin-bottom: $length-md;
+    }
+}

@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RouteNames } from './contracts/route-names';
 
 const routes: Routes = [
     {
-        path: 'welcome',
-        loadChildren: './modules/welcome/welcome.module#WelcomeModule'
+        path: RouteNames.Purchases,
+        loadChildren: './feature-modules/purchases/purchases.module#PurchasesModule'
     },
-    // {
-    //   path: 'portal',
-    //   loadChildren: './modules/portal/portal.module#PortalModule'
-    // },
+    {
+        path: RouteNames.Portal,
+        loadChildren: './feature-modules/portal/portal.module#PortalModule'
+    },
     {
         path: '**',
-        redirectTo: 'welcome'
+        redirectTo: RouteNames.Purchases
     },
 ];
 

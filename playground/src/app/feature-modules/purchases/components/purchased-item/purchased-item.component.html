@@ -1,0 +1,16 @@
+<div class="purchased-item">
+    <mat-card [class.selected-item]="purchasedItem.isSelected" (click)="setAsSelected()">
+        <mat-card-header>
+            <mat-card-title>{{ purchasedItem.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ purchasedItem.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="onDelete()" mat-button>
+                <mat-icon>delete</mat-icon>
+                    Delete
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,26 @@
+<div class="pg-main-view" fxLayout="row">
+    <div fxLayout="column" class="pg-container" fxLayoutAlign="start stretch" fxFlex>
+        <div>
+            Purchase Items Manager
+        </div>
+        <div fxLayout="row">
+            <div class="pg-container" fxFlex>
+                <pg-header></pg-header>
+            </div>
+        </div>
+
+        <div
+            class="pg-container" fxLayout="row" fxLayoutAlign="start stretch" fxFlex>
+            <div fxLayout="column">
+                <div class="pg-container pg-list-wrapper" fxFlex>
+                    <pg-purchased-items-list></pg-purchased-items-list>
+                </div>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start stretch" fxFlex>
+                <div class="pg-container" fxFlex>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
