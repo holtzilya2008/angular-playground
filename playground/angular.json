@@ -3,39 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cheburashka": {
+    "playground": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "cheb",
-      "schematics": {
-        "@schematics/angular:class": {
-          "spec": false
-        },
-        "@schematics/angular:component": {
-          "spec": false
-        },
-        "@schematics/angular:directive": {
-          "spec": false
-        },
-        "@schematics/angular:guard": {
-          "spec": false
-        },
-        "@schematics/angular:module": {
-          "spec": false
-        },
-        "@schematics/angular:pipe": {
-          "spec": false
-        },
-        "@schematics/angular:service": {
-          "spec": false
-        }
-      },
+      "prefix": "pg",
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cheburashka",
+            "outputPath": "dist/playground",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cheburashka:build"
+            "browserTarget": "playground:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cheburashka:build:production"
+              "browserTarget": "playground:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cheburashka:build"
+            "browserTarget": "playground:build"
           }
         },
         "test": {
@@ -117,7 +95,7 @@
         }
       }
     },
-    "cheburashka-e2e": {
+    "playground-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -125,7 +103,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cheburashka:serve"
+            "devServerTarget": "playground:serve"
           }
         },
         "lint": {
@@ -140,5 +118,5 @@
       }
     }
   },
-  "defaultProject": "cheburashka"
+  "defaultProject": "playground"
 }
