@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "ib",
+      "prefix": "pg",
       "schematics": {},
       "architect": {
         "build": {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ib-portal-main',
+  selector: 'pg-portal-main',
   templateUrl: './portal-main.component.html',
   styleUrls: ['./portal-main.component.scss']
 })
