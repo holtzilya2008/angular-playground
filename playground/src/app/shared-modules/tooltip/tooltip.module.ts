@@ -13,6 +13,9 @@ import { CoreServicesModule } from 'src/app/core-modules/core-services/core-serv
   exports: [
       GenericTooltipComponent,
       TooltipDirective
+  ],
+  entryComponents: [
+      GenericTooltipComponent
   ]
 })
 export class TooltipModule { }
