@@ -11,17 +11,11 @@ import { PortalHeaderComponent } from './components/portal-header/portal-header.
 
 @NgModule({
   declarations: [
-
     PortalMainComponent,
-
     PortalFirstComponent,
-
     PortalSecondComponent,
-
     PortalThirdComponent,
-
     PortalSmartComponent,
-
     PortalHeaderComponent
   ],
   imports: [

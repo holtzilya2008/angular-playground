@@ -10,6 +10,7 @@ import { PurchasedItemsRepositoryService } from './services/purchased-items-repo
 import { PurchasedItemsService } from './services/purchased-items.service';
 import { CoreServicesModule } from 'src/app/core-modules/core-services/core-services.module';
 import { PurchasesRoutingModule } from './purchases-routing.module';
+import { TooltipModule } from 'src/app/shared-modules/tooltip/tooltip.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PurchasesRoutingModule } from './purchases-routing.module';
   imports: [
     CommonModule,
     PurchasesRoutingModule,
-    CoreServicesModule
+    CoreServicesModule,
+    TooltipModule
   ],
   providers: [
     PurchasedItemsService,
