@@ -3,7 +3,7 @@ import { Directive, ApplicationRef, Injector,
          AfterViewInit, OnDestroy, HostListener, Input } from '@angular/core';
 import { ComponentPortal, DomPortalHost } from '@angular/cdk/portal';
 import { GenericTooltipComponent } from '../components/generic-tooltip/generic-tooltip.component';
-import { TooltipAppendToOptions } from '../contracts/tooltip-config';
+import { TooltipAppendToOptions } from '../contracts/append-options';
 
 @Directive({
   selector: '[pgTooltip]'
@@ -44,8 +44,12 @@ export class TooltipDirective implements AfterViewInit, OnDestroy {
 
     private showTooltip() {
         if (!this.portalHost.hasAttached()) {
-            this.portalHost.attach(this.componentPortal);
+            const tooltipComponentRef = this.portalHost.attachComponentPortal(this.componentPortal);
         }
+    }
+
+    private placeTooltipAtTheRightPosition (componentRef: GenericTooltipComponent) {
+        // TODO stopped here!
     }
 
     private hideTooltip() {
@@ -65,6 +69,5 @@ export class TooltipDirective implements AfterViewInit, OnDestroy {
     ngOnDestroy(): void {
         this.hideTooltip();
     }
-
 
 }
