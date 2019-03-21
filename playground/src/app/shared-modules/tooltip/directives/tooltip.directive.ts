@@ -1,9 +1,13 @@
 import { Directive, ApplicationRef, Injector,
          ComponentFactoryResolver, ElementRef,
-         AfterViewInit, OnDestroy, HostListener, Input } from '@angular/core';
+         AfterViewInit, OnDestroy, HostListener, Input, ComponentRef } from '@angular/core';
 import { ComponentPortal, DomPortalHost } from '@angular/cdk/portal';
 import { GenericTooltipComponent } from '../components/generic-tooltip/generic-tooltip.component';
 import { TooltipAppendToOptions } from '../contracts/append-options';
+import { TooltipPositionCalculator } from '../logic/tooltip-position-calculator';
+import { Refactor } from '../../../core-modules/utils/math-util';
+import { TooltipPositionAliases } from '../contracts/position-params';
+import { TooltipPositioner } from '../logic/tooltip-positioner';
 
 @Directive({
   selector: '[pgTooltip]'
@@ -25,7 +29,7 @@ export class TooltipDirective implements AfterViewInit, OnDestroy {
 
     ngAfterViewInit(): void {
         this.componentPortal = new ComponentPortal(GenericTooltipComponent);
-        this.determinePortalHost():
+        this.determinePortalHost();
         this.portalHost = new DomPortalHost(
             this.portalHostElement,
             this.componentFactoryResolver,
@@ -34,22 +38,28 @@ export class TooltipDirective implements AfterViewInit, OnDestroy {
         );
     }
 
-    @HostListener('mouseover') onMouseOver(){
+    @HostListener('mouseover') onMouseOver() {
         this.showTooltip();
     }
 
-    @HostListener('mouseleave') onMouseLeave(){
+    @HostListener('mouseleave') onMouseLeave() {
         this.hideTooltip();
     }
 
     private showTooltip() {
         if (!this.portalHost.hasAttached()) {
-            const tooltipComponentRef = this.portalHost.attachComponentPortal(this.componentPortal);
+            const tooltipComponentRef = this.portalHost.attach<GenericTooltipComponent>(this.componentPortal);
+            this.placeTooltipAtTheRightPosition(tooltipComponentRef);
         }
     }
 
-    private placeTooltipAtTheRightPosition (componentRef: GenericTooltipComponent) {
-        // TODO stopped here!
+    private placeTooltipAtTheRightPosition (componentRef: ComponentRef<GenericTooltipComponent>) {
+        const positionCalculator = new TooltipPositionCalculator(
+            componentRef.instance,
+            this.hostElement.nativeElement,
+            TooltipPositionAliases.getInstance().getParams('left'));
+        const positioner = new TooltipPositioner(positionCalculator, componentRef.instance);
+        positioner.placeTooltip();
     }
 
     private hideTooltip() {

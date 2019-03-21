@@ -9,7 +9,7 @@ import { TooltipContainerStyle } from '../../contracts/tooltip-container-style';
 export class GenericTooltipComponent implements OnInit {
 
   @Input()
-  tooltipContainerStyle: TooltipContainerStyle;
+  tooltipContainerStyle: TooltipContainerStyle = {position: 'absolute'};
 
   constructor() { }
 

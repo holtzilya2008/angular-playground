@@ -1,6 +1,6 @@
-import { GenericTooltipComponent } from "../components/generic-tooltip/generic-tooltip.component";
-import { TooltipRelationToTarget, TooltipPosition } from "../contracts/position-params";
-import { TooltipContainerStyle } from "../contracts/tooltip-container-style";
+import { GenericTooltipComponent } from '../components/generic-tooltip/generic-tooltip.component';
+import { TooltipRelationToTarget } from '../contracts/position-params';
+import { TooltipContainerStyle } from '../contracts/tooltip-container-style';
 
 export class TooltipPositionCalculator {
 
@@ -20,13 +20,14 @@ export class TooltipPositionCalculator {
         const tooltipX = offsetX + this.positionParams.distance * Math.cos(this.positionParams.angleInRadians) + tooltipWidth / 2;
         const tooltipY = offsetY + this.positionParams.distance * Math.sin(this.positionParams.angleInRadians) + tooltipHeight / 2;
 
-        return {
-            position: 'fixed',
-            height: `${tooltipHeight}px`,
-            width: `${tooltipWidth}px`,
-            top: `${tooltipX}`,
-            left: `${tooltipY}`
+        const tooltipStyle = {
+            'position': 'fixed',
+            'height': `${tooltipHeight}px`,
+            'width': `${tooltipWidth}px`,
+            'top': `${tooltipY}px`,
+            'left': `${tooltipX}px`
         };
+        return tooltipStyle;
     }
 
 }

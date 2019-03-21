@@ -1,16 +1,8 @@
-import { Refactor } from "../refactor";
+import { MathUtils } from '../../../core-modules/utils/math-util';
 
-export interface TooltipRelationToTarget
-{
+export interface TooltipRelationToTarget {
     angleInRadians: number;
     distance: number;
-}
-
-export interface TooltipPosition {
-    x: number;
-    y: number;
-    height: number;
-    width: number;
 }
 
 export class TooltipPositionAliases {
@@ -28,10 +20,10 @@ export class TooltipPositionAliases {
     }
 
     private constructor() {
-        this.registerAlias('right', {angle: Refactor.toRadians(0), distance: this.DefaultDistancePx } );
-        this.registerAlias('top', {angle: Refactor.toRadians(90), distance: this.DefaultDistancePx } );
-        this.registerAlias('left', {angle: Refactor.toRadians(180), distance: this.DefaultDistancePx } );
-        this.registerAlias('bottom', {angle: Refactor.toRadians(240), distance: this.DefaultDistancePx } );
+        this.registerAlias('right', {angleInRadians: MathUtils.toRadians(0), distance: this.DefaultDistancePx } );
+        this.registerAlias('top', {angleInRadians: MathUtils.toRadians(90), distance: this.DefaultDistancePx } );
+        this.registerAlias('left', {angleInRadians: MathUtils.toRadians(180), distance: this.DefaultDistancePx } );
+        this.registerAlias('bottom', {angleInRadians: MathUtils.toRadians(240), distance: this.DefaultDistancePx } );
     }
 
     registerAlias (alias: string, value: TooltipRelationToTarget) {

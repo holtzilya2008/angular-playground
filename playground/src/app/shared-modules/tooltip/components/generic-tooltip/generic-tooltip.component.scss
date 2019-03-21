@@ -1,9 +1,8 @@
 .pg-generic-tooltip {
-    position: absolute;
-    top: 500px;
-    left: 500px;
-    width: 100px;
-    height: 100px;
     background-color: black;
     color: white;
+    border: solid 1px white;
+    border-radius: 10px;
+    padding: 5px;
+
 }
