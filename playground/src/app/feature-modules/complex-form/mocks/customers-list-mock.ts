@@ -1,3 +1,5 @@
+import { CustomerDTO } from '../contracts/customer-dto';
+
 export function getCustomers(): CustomerDTO[] {
     return [{
         'id': 1,

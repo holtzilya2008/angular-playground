@@ -1,4 +1,4 @@
-import { UserDTO } from "../contracts/user-dto";
+import { UserDTO } from '../contracts/user-dto';
 
 
 export function getUsersList(): UserDTO[] {

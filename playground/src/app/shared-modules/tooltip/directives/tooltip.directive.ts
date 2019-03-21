@@ -5,7 +5,6 @@ import { ComponentPortal, DomPortalHost } from '@angular/cdk/portal';
 import { GenericTooltipComponent } from '../components/generic-tooltip/generic-tooltip.component';
 import { TooltipAppendToOptions } from '../contracts/append-options';
 import { TooltipPositionCalculator } from '../logic/tooltip-position-calculator';
-import { Refactor } from '../../../core-modules/utils/math-util';
 import { TooltipPositionAliases } from '../contracts/position-params';
 import { TooltipPositioner } from '../logic/tooltip-positioner';
 

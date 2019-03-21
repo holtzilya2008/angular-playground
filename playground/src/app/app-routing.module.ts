@@ -12,8 +12,12 @@ const routes: Routes = [
         loadChildren: './feature-modules/portal/portal.module#PortalModule'
     },
     {
+        path: RouteNames.ComplexForm,
+        loadChildren: './feature-modules/complex-form/complex-form.module#ComplexFormModule'
+    },
+    {
         path: '**',
-        redirectTo: RouteNames.Purchases
+        redirectTo: RouteNames.ComplexForm
     },
 ];
 
