@@ -1,3 +1,15 @@
-<p>
-  items-list-form works!
-</p>
+<h2> {{title}} </h2>
+
+<button mat-raised-button (click)="onAdd()" [disabled]="formArray.invalid" color="primary">Add</button>
+
+<ul *ngIf="formArray">
+    <li fxLayout="row" *ngFor="let control of formArray.controls; let ind = index">
+        <mat-form-field>
+            <input matInput [formControl]="control" placeholder="Name" required>
+            <mat-error *ngIf="control.invalid && control.errors['required']">Name is required</mat-error>
+        </mat-form-field>
+        <button title="Delete" mat-icon-button (click)="onRemove(ind)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </li>
+</ul>

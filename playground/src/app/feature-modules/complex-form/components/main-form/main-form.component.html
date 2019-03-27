@@ -1,7 +1,15 @@
-<h1>
+<h1> Complex Form </h1>
 
-<pg-customer-details-form [form]="customerDetailsFormGroup"></pg-customer-details-form>
+<div fxLayout="column" *ngIf="complexForm">
+    <pg-customer-details-form [form]="customerDetailsFormGroup"></pg-customer-details-form>
 
-<pg-items-list-form [formArray]="usersListForm"></pg-items-list-form>
+    <pg-items-list-form title="Users" [formArray]="usersListForm"></pg-items-list-form>
 
-<pg-items-list-form [formArray]="domainsListForm"></pg-items-list-form>
+    <pg-items-list-form title="Domains" [formArray]="domainsListForm"></pg-items-list-form>
+
+    <div class="pg-splitter" fxFlex></div>
+
+    <button mat-raised-button (click)="onSubmit()" [disabled]="complexForm.invalid" color="primary">Submit</button>
+</div>
+
+

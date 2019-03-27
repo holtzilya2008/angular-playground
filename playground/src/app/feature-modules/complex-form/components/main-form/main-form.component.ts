@@ -10,6 +10,7 @@ import { ComplexFormService } from '../../services/complex-form.service';
 })
 export class MainFormComponent implements OnInit {
 
+    complexForm: FormGroup;
     complexFormSubscribtion: Subscription;
     customerDetailsFormGroup: FormGroup;
     usersListForm: FormArray;
@@ -19,14 +20,15 @@ export class MainFormComponent implements OnInit {
 
     ngOnInit() {
         this.complexFormSubscribtion = this._complexFormService.complexForm$.subscribe((form) => {
+            this.complexForm = form;
             this.customerDetailsFormGroup = form.get('customerDetailsForm') as FormGroup;
             this.usersListForm = form.get('usersList') as FormArray;
-            this.usersListForm = form.get('domainsList') as FormArray;
+            this.domainsListForm = form.get('domainsList') as FormArray;
         });
     }
 
     onSubmit() {
-
+        console.log(this.complexForm.value);
     }
 
 }
