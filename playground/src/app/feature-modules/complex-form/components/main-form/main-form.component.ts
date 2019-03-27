@@ -25,6 +25,7 @@ export class MainFormComponent implements OnInit {
             this.usersListForm = form.get('usersList') as FormArray;
             this.domainsListForm = form.get('domainsList') as FormArray;
         });
+        this._complexFormService.loadCustomerForm(1).subscribe();
     }
 
     onSubmit() {

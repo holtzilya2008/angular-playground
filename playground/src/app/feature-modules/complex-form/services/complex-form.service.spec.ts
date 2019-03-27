@@ -3,12 +3,13 @@ import { TestBed } from '@angular/core/testing';
 import { ComplexFormService } from './complex-form.service';
 import { FormBuilder } from '@angular/forms';
 import { ICustomerDetailsForm } from '../contracts/customer-details-form-interface';
+import { ComplexFormApiService } from './complex-form-api.service';
 
 describe('ComplexFormService', () => {
     let service: ComplexFormService;
 
     beforeEach(() => {
-        service = new ComplexFormService(new FormBuilder());
+        service = new ComplexFormService(new FormBuilder(), new ComplexFormApiService());
     });
 
     it('Should initialize an empty complex form as the first value of the BehaviourSubject', () => {
