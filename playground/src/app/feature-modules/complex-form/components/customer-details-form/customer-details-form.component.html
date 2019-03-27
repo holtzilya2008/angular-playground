@@ -1,3 +1,21 @@
 <p>
   customer-details-form works!
 </p>
+
+<form fxLayout="column" *ngIf="form" [formGroup]="form">
+
+    <mat-form-field>
+        <input matInput formControlName="name" placeholder="Name" required>
+        <mat-error *ngIf="name.invalid && name.errors['required']">Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="description" placeholder="Description" required>
+        <mat-error *ngIf="description.invalid && description.errors['required']">Description is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="Email" required>
+        <mat-error *ngIf="email.invalid && email.errors['required']">Email is required</mat-error>
+    </mat-form-field>
+
+
+</form>

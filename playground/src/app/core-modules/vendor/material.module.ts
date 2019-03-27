@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import {PortalModule} from '@angular/cdk/portal';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import {PortalModule} from '@angular/cdk/portal';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    PortalModule
+    PortalModule,
+    MatFormFieldModule,
   ],
   exports: [
     MatCardModule,
@@ -23,7 +25,8 @@ import {PortalModule} from '@angular/cdk/portal';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    PortalModule
+    PortalModule,
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }
